@@ -1,7 +1,8 @@
 import style from './Feedback.module.css';
+import PropTypes from 'prop-types';
 
 
-const StatlistItem = ({onGood, onNeutral, onBad, onTotal, positivePercentage}) => {
+const Statistics  = ({onGood, onNeutral, onBad, onTotal, positivePercentage}) => {
     return (
         <ul className={style.statList}>
             <li className={style.statListItem}>Good:&nbsp;
@@ -21,7 +22,16 @@ const StatlistItem = ({onGood, onNeutral, onBad, onTotal, positivePercentage}) =
     )
 }
 
+Statistics.propTypes = {
+    onGood: PropTypes.number.isRequired,
+    onNeutral: PropTypes.number.isRequired,
+    onBad: PropTypes.number.isRequired,
+    onTotal: PropTypes.func.isRequired,
+    positivePercentage: PropTypes.func.isRequired
+}
 
 
 
-export default StatlistItem;
+export default Statistics;
+
+

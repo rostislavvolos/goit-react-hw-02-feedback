@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './Feedback.module.css';
-import ButtonFeedback from './buttonbeedback';
-import StatlistItem from './statList';
+import FeedbackOptions from './FeedbackOptions';
+import Statistics from './Statistics';
+import Section from './Section';
 class Feedback extends React.Component {
 
     state = {
@@ -34,55 +35,17 @@ class Feedback extends React.Component {
         });
     };
 
-
-    // FeedbackFunction = event => {
-    //     const {name} = event.target;
-    //     this.setState(prevState => {
-    //         return {
-    //             [name]: prevState[name] + 1,
-    //         };
-    //     });
-    // };
-
-    // handleGood = () => {
-    //     this.setState((prevState) => {
-    //         return {
-    //             good: prevState.good + 1,
-    //         };
-    //     });
-    // };
-
-    
-
-    // handleNeutral = () => {
-    //     this.setState((prevState) => {
-    //         return {
-    //             neutral: prevState.neutral + 1,
-    //         };
-    //     });
-    // }
-
-    // handleBad = () => {
-    //     this.setState((prevState) => {
-    //         return {
-    //             bad: prevState.bad + 1,
-    //         };
-    //     });
-    // }
-
     render () {
-        return (
+        return ( 
+            <Section title="Please leave feedback!">
     <div className={style.feedback}>
-        <p className={style.feedbackTitle}>
-            Please leave feedback!
-        </p>
-        <ButtonFeedback 
+        <FeedbackOptions 
         onGood={this.FeedbackFunction}
         onNeutral={this.FeedbackFunction}
         onBad={this.FeedbackFunction}
         />
         <p className={style.statistics}>Statistics</p>
-        <StatlistItem
+        <Statistics 
         onGood={this.state.good}
         onNeutral={this.state.neutral}
         onBad={this.state.bad}
@@ -90,6 +53,7 @@ class Feedback extends React.Component {
         positivePercentage={this.positivePercentage()}
         />
     </div>
+    </Section>
     )
     }
 }

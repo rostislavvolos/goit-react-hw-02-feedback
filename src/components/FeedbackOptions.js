@@ -1,6 +1,7 @@
 import style from './Feedback.module.css';
+import PropTypes from 'prop-types';
 
-const ButtonFeedback = ({onGood, onNeutral, onBad}) => (
+const FeedbackOptions = ({onGood, onNeutral, onBad}) => (
     <div className={style.feedbackButton}>
             <button type='button' onClick={() => onGood("good")}>Good</button>
             <button type='button' onClick={() => onNeutral("neutral")}>Neutral</button>
@@ -9,5 +10,14 @@ const ButtonFeedback = ({onGood, onNeutral, onBad}) => (
     
 )
 
+ 
 
-export default ButtonFeedback;
+FeedbackOptions.propTypes = {
+    onGood: PropTypes.func.isRequired,
+    onNeutral: PropTypes.func.isRequired,
+    onBad: PropTypes.func.isRequired
+}
+
+
+
+export default FeedbackOptions;
